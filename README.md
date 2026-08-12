@@ -87,6 +87,27 @@ Just ask your agent in natural language — the skills trigger on Bambuser topic
 
 The integration skill identifies the product, applies the shared concepts, and fetches the exact, current detail from the docs before writing code. The knowledge skill answers from curated FAQs and fetches fresh knowledge-base articles.
 
+### Optional: pin the routing in your agent instructions
+
+The skills trigger on their own descriptions, but if your agent sometimes picks the wrong one, copy this into your project's instructions file (`CLAUDE.md`, `AGENTS.md`, Cursor rules, …):
+
+```text
+Two Bambuser skills are installed — route by intent, not keyword:
+
+- Writing or changing code (embeds, cart/product-data wiring, tracking code,
+  REST APIs, SSO configuration, mobile SDKs, App Framework)
+  → use the `bambuser-integration` skill.
+- Using the product, no code involved (dashboard/Bam Hub how-tos, creating and
+  moderating shows, broadcasting/RTMP, bookings, the agent tool, what stats
+  mean, capabilities and limits, "can Bambuser do X?")
+  → use the `bambuser-knowledge` skill.
+- Mixed requests (e.g. "purchases aren't showing up in stats") often need both:
+  diagnose with bambuser-knowledge, fix with bambuser-integration.
+- Never answer Bambuser specifics from memory — follow the skill's mechanism to
+  fetch the live docs (bambuser.com/docs) or knowledge base
+  (knowledge.bambuser.com) first.
+```
+
 ## What's inside
 
 ```
