@@ -51,9 +51,11 @@ Identify the product first; if it's genuinely ambiguous, ask. Common signals:
 - "video call" / "one-to-one" / "consultation" / "booking" / "queue" / `oneToOneEmbed` → **Video Consultation**
 - "chat widget" / "text chat" / `hero` / "in-store expert" → **Chat**
 - "virtual try-on / VTO" / "build an app/tool" / "extend the player or agent" → **App Framework**
-- "iOS / Android / React Native SDK" / "native app" / "WebView" → a **Mobile SDK** (under Live Shopping)
-- "REST API" / "stats/analytics endpoint" / "Channels API" / "webhook" → a **REST API** (per product)
-- "SSO" / "SAML" / "Okta" / "Azure AD" / "dashboard login" → **SSO** (per product)
+- "iOS / Android / React Native SDK" / "native app" / "WebView" → **Mobile SDKs** — see [`references/mobile-sdks.md`](references/mobile-sdks.md)
+- "REST API" / "stats endpoint" / "webhook" / "Channels API" → **REST APIs** — see [`references/rest-apis.md`](references/rest-apis.md)
+- "purchase tracking" / "conversion" / "GTM" / "analytics" / "attribution" → **Tracking** — see [`references/tracking.md`](references/tracking.md)
+- "SSO" / "SAML" / "Okta" / "Azure AD" / "dashboard login" → **SSO** — see [`references/sso.md`](references/sso.md)
+- "doesn't work" / "not appearing" / "no data" / "worked before" → start from [`references/troubleshooting.md`](references/troubleshooting.md)
 
 A single integration often spans several topics (e.g. embed Live + cart + tracking + a REST stats pull). Read the relevant section of `references/products.md` and fetch each topic's doc page rather than forcing one page to cover everything.
 
@@ -102,7 +104,7 @@ The full product object shape, the factory chain, callback formats, and a workfl
 
 - **Live, Shoppable Video, Video Consultation** — Shopper Events Tracking via `window._bambuser.track(eventType, data)` (purchase, add-to-cart, product-view, wishlist, refund…). Requires first-party cookies; if cookies are blocked, tracking fails silently but playback is unaffected.
 - **Chat** — a separate API, `hero("track", { type: "ecommerce:purchase", … })`. Product View and Purchase events are **required** for Chat to function.
-- GTM templates exist for all of them. Exact event payloads and cookie names live in each product's tracking doc — fetch it.
+- GTM templates exist for all of them. Legacy Conversion Tracker installs still exist in the wild — identify and migrate, don't mix. Depth (generations, attribution, the four ways to pull analytics out): [`references/tracking.md`](references/tracking.md); exact payloads in each product's tracking doc — fetch it.
 
 ## Fetching the documentation (the mechanism this skill depends on)
 
@@ -138,4 +140,10 @@ The official docs at `https://bambuser.com/docs` are published LLM-first. **Pref
 - [`references/products.md`](references/products.md) — the five products in depth: what each is, when to use it, key objects/widgets, and the non-obvious gotchas.
 - [`references/regions.md`](references/regions.md) — Global vs EU: how to determine the region, the per-product region-encoding conventions, and the exact hosts (verify against the live docs).
 - [`references/cart-and-product-data.md`](references/cart-and-product-data.md) — the shared product object, the factory/builder chain, callback formats, the Product Feed alternative, and a workflow for discovering a specific store's cart/product endpoints.
+- [`references/tracking.md`](references/tracking.md) — Shopper Events vs legacy Conversion Tracker, attribution mechanics, GTM, and the four ways to pull analytics out.
+- [`references/rest-apis.md`](references/rest-apis.md) — REST APIs & webhooks: the fetchable OpenAPI spec URLs (the human portal is a JS shell), auth/scopes/rate limits, endpoint families.
+- [`references/sso.md`](references/sso.md) — dashboard SSO: SAML/OIDC options and the per-product slug asymmetry.
+- [`references/mobile-sdks.md`](references/mobile-sdks.md) — native SDKs vs WebView, per-platform slug patterns, the `US`/`EU` region enum.
+- [`references/app-framework.md`](references/app-framework.md) — the build-and-publish model, Screen/Dialog/Tool/VTO APIs, VTO patterns, beta caveats.
+- [`references/troubleshooting.md`](references/troubleshooting.md) — the universal triage order and symptom→cause families; fetch exact articles via `llms.txt`.
 - [`references/doc-index.md`](references/doc-index.md) — a short, validated map of common entry-point doc pages per product, plus the `llms-*.txt` bundle list. A convenience snapshot — `llms.txt` is always authoritative.

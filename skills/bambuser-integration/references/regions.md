@@ -31,7 +31,7 @@ Notes that bite people:
 - **Live/Shoppable Video swap the subdomain** (`lcx-embed` ↔ `lcx-embed-eu`). **Video Consultation swaps a path** (`/embed.js` ↔ `/eu/embed.js`) on the *same* host. Mixing these up produces a silently-wrong embed.
 - **Mobile uses an enum**, and the non-EU value is literally `US`, not "Global". Don't pass a host. The enum's type name differs by platform — Android `OrganizationServer.US` / `.EU`; iOS `BambuserVideoPlayer(server: .US)` / `.EU` — so fetch the platform's setup doc for the exact name.
 - **Chat and the Channel widget have no documented EU host** — region for Chat is selected by which Application ID you install, not by the loader URL. If a customer "in the EU" asks for an EU Chat loader URL, that's a misunderstanding to correct.
-- REST APIs (e.g. `liveshopping-api.bambuser.com`) did not surface a documented EU host variant — verify in the analytics/API doc page if data residency is a concern.
+- REST APIs (`liveshopping-api.bambuser.com`) have no documented EU host variant — verify with Bambuser if data residency is a concern (see [`rest-apis.md`](rest-apis.md)).
 
 ## Step 3 — Keep everything in one region
 

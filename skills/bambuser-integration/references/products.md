@@ -60,14 +60,17 @@ Durable, concept-level knowledge per product — what it is, when it's the right
 
 **Key objects & surfaces.** - An **app manifest** + sandbox template. - **Screen API** (full-area views), **Dialog API** (modal panels), **Tool API** (side-panel views in the player), and **Calls/VTO** APIs.
 
-**Non-obvious relevances.** - It's **Beta** — flag this to customers; APIs and availability may change, so leaning on the live docs matters even more here. - It's a **build-and-publish** model (architecture, manifest, design library, publish flow), not a copy-paste snippet. Treat requests here as app development, not page embedding. - VTO has multiple provider patterns (custom provider, session tool, data via placeholder) — pick the one matching the customer's VTO vendor.
+**Non-obvious relevances.** - It's **Beta** — flag this to customers; APIs and availability may change, so leaning on the live docs matters even more here. - It's a **build-and-publish** model (architecture, manifest, design library, publish flow), not a copy-paste snippet. Treat requests here as app development, not page embedding. - VTO has multiple provider patterns (custom provider, session tool, data via placeholder) — pick the one matching the customer's VTO vendor. Full depth (APIs, VTO patterns, slug gotchas): [`app-framework.md`](app-framework.md).
 
 ---
 
 ## Cross-cutting sub-topics (not separate products)
 
-- **Mobile SDKs** — native iOS / Android / React Native players, plus WebView integration. Documented under **Live Shopping** (and Shoppable Video has its own mobile SDKs). Region is chosen with a `US`/`EU` **enum**, not a host swap (see [`regions.md`](regions.md)).
-- **REST APIs** — per product (e.g. Live Shopping Stats / Channels API at `liveshopping-api.bambuser.com`). Referenced from the relevant product doc pages; fetch those for endpoints and scopes.
-- **SSO** — SAML (Okta, Azure AD, custom IdP) and OIDC for dashboard login, documented per product.
+Each has its own reference file with the durable concepts and slug gotchas:
 
-When a request touches one of these, start from the parent product in the routing list, then fetch the specific sub-topic page from `llms.txt`.
+- **Mobile SDKs** — native iOS / Android / React Native players, plus WebView integration → [`mobile-sdks.md`](mobile-sdks.md).
+- **REST APIs & webhooks** — server-side automation at `liveshopping-api.bambuser.com` → [`rest-apis.md`](rest-apis.md).
+- **Tracking & analytics** — Shopper Events, legacy Conversion Tracker, GTM, data export → [`tracking.md`](tracking.md).
+- **SSO** — SAML (Okta, Azure AD, custom IdP) and OIDC for dashboard login → [`sso.md`](sso.md).
+
+When a request touches one of these, start from the parent product in the routing list, read the topic reference, then fetch the specific page from `llms.txt`.
