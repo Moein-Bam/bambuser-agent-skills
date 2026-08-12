@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Install the Bambuser agent skill into the skills directories on this machine.
+# Install the Bambuser agent skills into the skills directories on this machine.
 #
 # Usage:
 #   ./install.sh              Install into THIS project (./.claude/skills, ./.agents/skills)
@@ -16,10 +16,10 @@
 
 set -euo pipefail
 
-SKILL_NAME="bambuser-integration"
-# Absolute path to skills/<name> next to this script, regardless of where it's called from.
+SKILLS=(bambuser-integration bambuser-knowledge)
+# Absolute path to skills/ next to this script, regardless of where it's called from.
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-SOURCE_DIR="${SCRIPT_DIR}/skills/${SKILL_NAME}"
+SKILLS_DIR="${SCRIPT_DIR}/skills"
 
 SCOPE="project"
 MODE="auto"   # auto | copy | link
@@ -36,10 +36,12 @@ for arg in "$@"; do
   esac
 done
 
-if [ ! -f "${SOURCE_DIR}/SKILL.md" ]; then
-  echo "Error: ${SOURCE_DIR}/SKILL.md not found. Run this from inside the cloned repo." >&2
-  exit 1
-fi
+for skill in "${SKILLS[@]}"; do
+  if [ ! -f "${SKILLS_DIR}/${skill}/SKILL.md" ]; then
+    echo "Error: ${SKILLS_DIR}/${skill}/SKILL.md not found. Run this from inside the cloned repo." >&2
+    exit 1
+  fi
+done
 
 if [ "$SCOPE" = "global" ]; then
   CLAUDE_BASE="$HOME/.claude/skills"
@@ -49,23 +51,24 @@ else
   AGENTS_BASE="$PWD/.agents/skills"
 fi
 
-echo "Installing '${SKILL_NAME}' (${SCOPE}, mode=${MODE}) from: ${SOURCE_DIR}"
+echo "Installing skills: ${SKILLS[*]} (${SCOPE}, mode=${MODE}) from: ${SKILLS_DIR}"
 if [ "$SCOPE" = "project" ]; then
   echo "  Target project root: ${PWD}  (run this from YOUR project, not the cloned repo)"
 fi
 
-install_one() {  # $1 = base dir, $2 = how (link|copy)
-  local base="$1" how="$2"
-  local target="${base}/${SKILL_NAME}"
+install_one() {  # $1 = base dir, $2 = how (link|copy), $3 = skill name
+  local base="$1" how="$2" skill="$3"
+  local source="${SKILLS_DIR}/${skill}"
+  local target="${base}/${skill}"
   mkdir -p "$base"
   # Idempotent: clear any prior install (symlink, dir, or file) before re-installing.
   if [ -e "$target" ] || [ -L "$target" ]; then
     rm -rf "$target"
   fi
-  if [ "$how" = "link" ] && ln -s "$SOURCE_DIR" "$target" 2>/dev/null; then
+  if [ "$how" = "link" ] && ln -s "$source" "$target" 2>/dev/null; then
     echo "  ✓ linked  ${target}"
   else
-    cp -R "$SOURCE_DIR" "$target"
+    cp -R "$source" "$target"
     [ "$how" = "link" ] && echo "  ✓ copied  ${target}  (symlink unsupported here)" \
                         || echo "  ✓ copied  ${target}"
   fi
@@ -77,8 +80,10 @@ case "$MODE" in
   *)    claude_how=link; agents_how=copy ;;   # auto
 esac
 
-install_one "$CLAUDE_BASE" "$claude_how"
-install_one "$AGENTS_BASE" "$agents_how"
+for skill in "${SKILLS[@]}"; do
+  install_one "$CLAUDE_BASE" "$claude_how" "$skill"
+  install_one "$AGENTS_BASE" "$agents_how" "$skill"
+done
 
 cat <<'EOF'
 
@@ -86,7 +91,8 @@ Done. Notes:
   • Claude Code reads .claude/skills; Cursor/Codex/Gemini/Copilot/Amp read .agents/skills.
   • Codex does NOT load a symlinked .agents/skills, so that target is copied by default.
   • Symlinked targets refresh on `git pull`; copied targets need a re-run of this script.
-  • Verify: ls "<target>/bambuser-integration/SKILL.md"  — then restart your agent / new session.
-  • claude.ai users: allow the 'bambuser.com' domain at claude.ai/settings/capabilities,
-    or the skill cannot fetch the docs it relies on.
+  • Verify: ls "<target>/bambuser-integration/SKILL.md" "<target>/bambuser-knowledge/SKILL.md"
+    — then restart your agent / new session.
+  • claude.ai users: allow 'bambuser.com' AND 'knowledge.bambuser.com' at
+    claude.ai/settings/capabilities, or the skills cannot fetch the docs they rely on.
 EOF

@@ -1,3 +1,6 @@
+# Skill packaging artifacts (e.g. zips built for claude.ai upload)
+*.zip
+
 # OS / editor
 .DS_Store
 Thumbs.db
