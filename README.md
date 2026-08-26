@@ -47,17 +47,27 @@ cd /path/to/your/project && /path/to/agent-skills/install.sh    # or per-project
 
 ## Use
 
-Add the routing rules in your project's instructions file (`CLAUDE.md`, `AGENTS.md`, Cursor rules, etc.):
+Optionally, add your workspace facts and the routing rules to your project's instructions file
+(`CLAUDE.md`, `AGENTS.md`, Cursor rules, etc.). Fill in the top two lines — they save
+the agent from asking every session, and the region decides which hosts it writes:
 
 ```text
+Bambuser workspace: 
+- region: <Global | EU>, 
+- orgId: <your-org-id>
+
 Two Bambuser skills are installed — route by intent, not keyword:
-- Writing or changing code (embeds, cart/product data, tracking, REST APIs,
-  SSO, mobile SDKs, App Framework) → the bambuser-integration skill.
-- Using the product, no code (dashboard how-tos, shows, broadcasting/RTMP,
-  bookings, stats meanings, "can Bambuser do X?") → the bambuser-knowledge skill.
-- Mixed requests: diagnose with bambuser-knowledge, fix with bambuser-integration.
-- Never answer Bambuser specifics from memory — fetch the live docs first.
+- Writing or changing code (embeds, cart/product data, tracking, REST APIs, SSO, mobile SDKs, App Framework) → the bambuser-integration skill.
+- Using the product, no code (dashboard how-tos, shows, broadcasting/RTMP, bookings, stats meanings, "can Bambuser do X?") → the bambuser-knowledge skill.
+- Mixed requests: Usability diagnostic part with bambuser-knowledge, fix with bambuser-integration.
+- Don't use Bambuser API/config specifics from the model's own knowledge — fetch the live docs page first, and treat it as authoritative if it contradicts the skill.
+- Workspace-specific values (region, orgId, show/video/playlist IDs, existing cart APIs) come from the lines above, the user, or their code — never from a guess unless for testing.
 ```
+
+Both are in your BamHub URL: the domain gives the region (`lcx.bambuser.com` = Global,
+`lcx-eu.bambuser.com` = EU) and the path segment after it is the `orgId`
+(`lcx.bambuser.com/<orgId>`). Leave a placeholder as-is if you don't know it yet — the
+skills will ask rather than invent one.
 
 Now you can just ask in natural language — the skills trigger on Bambuser topics. Examples:
 
