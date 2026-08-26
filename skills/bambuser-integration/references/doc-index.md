@@ -72,4 +72,4 @@ When you need broad context for one product in a single fetch (each is large):
 
 ---
 
-**REST APIs & SSO** are not listed as standalone sections — they're sub-topics referenced from the product pages above (e.g. Live Shopping stats at `liveshopping-api.bambuser.com`, SSO under each product). Find the exact page via `llms.txt`.
+**REST APIs & SSO** are not listed as standalone sections — they're sub-topics referenced from the product pages above (e.g. Live Shopping stats at `liveshopping-api.bambuser.com`, SSO under each product). Find the exact page via `llms.txt`. The REST APIs and Webhooks additionally have their own portals and OpenAPI specs outside `bambuser.com/docs` — see [`rest-apis.md`](rest-apis.md).

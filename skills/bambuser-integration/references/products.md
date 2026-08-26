@@ -69,7 +69,7 @@ Durable, concept-level knowledge per product — what it is, when it's the right
 Each has its own reference file with the durable concepts and slug gotchas:
 
 - **Mobile SDKs** — native iOS / Android / React Native players, plus WebView integration → [`mobile-sdks.md`](mobile-sdks.md).
-- **REST APIs & webhooks** — server-side automation at `liveshopping-api.bambuser.com` → [`rest-apis.md`](rest-apis.md).
+- **REST APIs & webhooks** — six server-side APIs at `liveshopping-api(-eu).bambuser.com` (Live, Video Consultation, Shoppable Video, Product Catalog, Apps, Shopper data); **backend only, API-key auth, rate-limited** → [`rest-apis.md`](rest-apis.md).
 - **Tracking & analytics** — Shopper Events, legacy Conversion Tracker, GTM, data export → [`tracking.md`](tracking.md).
 - **SSO** — SAML (Okta, Azure AD, custom IdP) and OIDC for dashboard login → [`sso.md`](sso.md).
 

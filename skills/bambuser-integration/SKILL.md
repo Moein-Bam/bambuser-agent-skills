@@ -1,7 +1,7 @@
 ---
 name: bambuser-integration
 description: >
-  Expert assistant for integrating Bambuser video-commerce products into any website, app, or storefront. Use whenever a request mentions Bambuser, live shopping, shoppable video, video consultation, one-to-one calls, the chat / hero widget, the App Framework, embedding a Bambuser player, cart or product-data integration, shopper-events tracking, or choosing a Bambuser data region (Global vs EU). Identifies which of the five products is in play, applies the concepts shared across them (the ready-callback pattern, the cart/product-data model, regions), and — crucially — fetches the latest specifics from the official docs at bambuser.com/docs (the llms.txt index + per-page .md) instead of relying on memorized detail. Use it not only to explain but to write and wire real embed, cart, and tracking code into a site or Shopify theme. Trigger keywords include onBambuserLiveShoppingReady, onBambuserOneToOneReady, bam-playlist, HeroWebPluginSettings, oneToOneEmbed, initBambuserLiveShopping.
+  Expert assistant for integrating Bambuser video-commerce products into any website, app, or storefront. Use whenever a request mentions Bambuser, live shopping, shoppable video, video consultation, one-to-one calls, the chat / hero widget, the App Framework, embedding a Bambuser player, cart or product-data integration, shopper-events tracking, the server-side REST APIs and webhooks, or choosing a Bambuser data region (Global vs EU). Identifies which of the five products is in play, applies the concepts shared across them (the ready-callback pattern, the cart/product-data model, regions), and — crucially — fetches the latest specifics from the official docs at bambuser.com/docs (the llms.txt index + per-page .md) instead of relying on memorized detail. Use it not only to explain but to write and wire real embed, cart, and tracking code into a site or Shopify theme. Trigger keywords include onBambuserLiveShoppingReady, onBambuserOneToOneReady, bam-playlist, HeroWebPluginSettings, oneToOneEmbed, initBambuserLiveShopping.
 license: Apache-2.0
 metadata:
   organization: Bambuser
@@ -52,7 +52,7 @@ Identify the product first; if it's genuinely ambiguous, ask. Common signals:
 - "chat widget" / "text chat" / `hero` / "in-store expert" → **Chat**
 - "virtual try-on / VTO" / "build an app/tool" / "extend the player or agent" → **App Framework**
 - "iOS / Android / React Native SDK" / "native app" / "WebView" → **Mobile SDKs** — see [`references/mobile-sdks.md`](references/mobile-sdks.md)
-- "REST API" / "stats endpoint" / "webhook" / "Channels API" → **REST APIs** — see [`references/rest-apis.md`](references/rest-apis.md)
+- "REST API" / "stats endpoint" / "webhook" / "API key" / "server-side" / "bulk import" → **REST APIs** (only when a backend is in play — see the REST section) — see [`references/rest-apis.md`](references/rest-apis.md)
 - "purchase tracking" / "conversion" / "GTM" / "analytics" / "attribution" → **Tracking** — see [`references/tracking.md`](references/tracking.md)
 - "SSO" / "SAML" / "Okta" / "Azure AD" / "dashboard login" → **SSO** — see [`references/sso.md`](references/sso.md)
 - "doesn't work" / "not appearing" / "no data" / "worked before" → start from [`references/troubleshooting.md`](references/troubleshooting.md)
@@ -71,6 +71,7 @@ Region is **not encoded uniformly** across products — this is a frequent footg
 - **Video Consultation** — an **`/eu/` path** segment (`one-to-one.bambuser.com/embed.js` → `one-to-one.bambuser.com/eu/embed.js`).
 - **Mobile SDKs** — a region **enum** whose non-EU value is literally `US` (not "Global"). The type name is platform-specific (Android `OrganizationServer.US`; iOS `BambuserVideoPlayer(server: .US)`) — fetch the platform's setup doc for the exact name.
 - **Chat** and the **Channel widget** have **no documented EU host variant** (Chat selects environment via its Application ID).
+- **REST APIs** — a **host** swap (`liveshopping-api.bambuser.com` → `liveshopping-api-eu.bambuser.com`); an API key only works in its own region.
 
 Exact, current hosts per product/topic — and the data-residency reasoning — are in [`references/regions.md`](references/regions.md). When in doubt, confirm the host against the live doc page (next section).
 
@@ -106,6 +107,34 @@ The full product object shape, the factory chain, callback formats, and a workfl
 - **Chat** — a separate API, `hero("track", { type: "ecommerce:purchase", … })`. Product View and Purchase events are **required** for Chat to function.
 - GTM templates exist for all of them. Legacy Conversion Tracker installs still exist in the wild — identify and migrate, don't mix. Depth (generations, attribution, the four ways to pull analytics out): [`references/tracking.md`](references/tracking.md); exact payloads in each product's tracking doc — fetch it.
 
+## REST APIs — backend only
+
+**Don't bring the REST API up unless the task actually calls for it.** The default answer to a Bambuser question is the **embed / client-side API** (`player`, `oneToOneEmbed`, `hero`, tracking, dashboard settings). Only propose REST when **both** are true: there is a **backend to run it from** (a server, serverless function, middleware, CI job — not a Shopify theme, SPA, or static site on its own), **and** the use case genuinely can't be done client-side or in the dashboard — bulk/scheduled sync, server-to-server automation, warehouse exports, GDPR erasure, webhook receivers. If the user hasn't indicated a backend, ask before designing around it rather than assuming one exists.
+
+Never hand a REST call to browser, mobile-app, or theme code, and never offer it as a "simpler alternative" to a client-side API that already solves the problem.
+
+Bambuser exposes **six server-side REST APIs** on one host for work that happens outside a shopper's session. Portal tabs (HTML docs) — append **`/spec`** to any of them for the fetchable OpenAPI 3 spec:
+
+| API | Docs path | Use it for |
+|---|---|---|
+| **Live** | `/v1/docs/api/one-to-many` | shows, show products, channels, tags, broadcasts, chat/transcripts, highlights, Live stats, users |
+| **Video Consultation** | `/v1/docs/api/one-to-one` | calls & transcriptions, call stats, connect links for booking systems, agents |
+| **Shoppable Video** | `/v1/docs/api/vod` | bulk video management, media assets & uploads, captions, playlists |
+| **Product Catalog** | `/v1/docs/api/product-catalog` | the org's product catalog: search/create/update/delete, org-wide or per feed |
+| **Apps** | `/v1/docs/api/apps` | App Framework automation: apps & revisions, installs, custom elements, installation keys |
+| **Shopper data** | `/v1/docs/api/shopper-data` | read/erase shopper-submitted PII (e.g. competition entries) — GDPR access & erasure |
+
+Paths are relative to the regional base URL below. Rule of thumb: **content & stats** → the product API; **the products inside that content** → Product Catalog; **extending the surfaces** → Apps; **PII a shopper typed in** → Shopper data.
+
+- **Never call it from front-end code.** Auth is a long-lived, org-wide **API key** (`Authorization: Token …` — not `Bearer`), created in BamHub → Settings → Integrations → API Keys with **scopes fixed at creation**. In the browser it leaks to every visitor. Client code uses the player/embed APIs; server code uses REST.
+- **Rate-limited per key** — default **5 requests / 10-second moving window**, then 429. Batch, cache, and prefer webhooks over polling.
+- **Base URL is region-specific:** Global `https://liveshopping-api.bambuser.com/v1` · EU `https://liveshopping-api-eu.bambuser.com/v1`. Match the workspace's dashboard (`lcx` vs `lcx-eu`); ask if unknown.
+- **Fetch the OpenAPI 3 spec, not the portal** — the portal is a ReDoc JS shell that fetches empty. Specs can be large and gzip-encoded; save to a file and query it.
+
+**Webhooks** are documented on those same API pages (the `Webhooks` tag) — none exist for Shoppable Video. Prefer them over polling. Receivers are registered **per product**: switch to that product's dashboard first (e.g. the Video Consultation dashboard for call events), then **Settings → Integrations → Webhooks** — or `POST /webhooks` with `name`/`url`/`topics`/`headers`. Delivery retries until 200 and **can duplicate**, so handlers must be idempotent; secure with custom headers (Bambuser sends from no fixed IP) and verify an event with `GET /webhooks/{eventId}`. Dashboard walkthrough: `https://knowledge.bambuser.com/settings/guide-to-setting-up-webhooks-in-the-bambuser-dashboard`.
+
+Endpoint families, webhook topics, and spec-fetching tips: [`references/rest-apis.md`](references/rest-apis.md).
+
 ## Fetching the documentation (the mechanism this skill depends on)
 
 The official docs at `https://bambuser.com/docs` are published LLM-first. **Prefer them over memory for any specific attribute, event field, config key, endpoint, host, or limit** — and treat them as the source of truth when this skill and a doc page disagree (the docs are newer).
@@ -134,6 +163,7 @@ The official docs at `https://bambuser.com/docs` are published LLM-first. **Pref
 - Use the correct **region** (ask if unknown) and set `currency`/`locale` whenever cart is involved.
 - Include error handling in cart callbacks; surface out-of-stock via the callback `reason`.
 - Match the mode to the question: a **customer-facing answer** stays clear and free of internal detail; an **internal investigation** can include code references and implementation depth.
+- **Default to client-side/embed APIs and dashboard settings.** Reach for the REST API only when there's a backend to call it from *and* the scenario requires it (see the REST section) — never in front-end code, and never as an unprompted suggestion.
 
 ## Reference files
 
@@ -141,7 +171,7 @@ The official docs at `https://bambuser.com/docs` are published LLM-first. **Pref
 - [`references/regions.md`](references/regions.md) — Global vs EU: how to determine the region, the per-product region-encoding conventions, and the exact hosts (verify against the live docs).
 - [`references/cart-and-product-data.md`](references/cart-and-product-data.md) — the shared product object, the factory/builder chain, callback formats, the Product Feed alternative, and a workflow for discovering a specific store's cart/product endpoints.
 - [`references/tracking.md`](references/tracking.md) — Shopper Events vs legacy Conversion Tracker, attribution mechanics, GTM, and the four ways to pull analytics out.
-- [`references/rest-apis.md`](references/rest-apis.md) — REST APIs & webhooks: the fetchable OpenAPI spec URLs (the human portal is a JS shell), auth/scopes/rate limits, endpoint families.
+- [`references/rest-apis.md`](references/rest-apis.md) — REST APIs & webhooks for Live, Shoppable Video, and Video Consultation: why they're backend-only, the fetchable OpenAPI spec URLs (the human portal is a JS shell), regional base URLs, auth/scopes/rate limits, endpoint families, and webhook setup (dashboard + API), topics, and verification.
 - [`references/sso.md`](references/sso.md) — dashboard SSO: SAML/OIDC options and the per-product slug asymmetry.
 - [`references/mobile-sdks.md`](references/mobile-sdks.md) — native SDKs vs WebView, per-platform slug patterns, the `US`/`EU` region enum.
 - [`references/app-framework.md`](references/app-framework.md) — the build-and-publish model, Screen/Dialog/Tool/VTO APIs, VTO patterns, beta caveats.
