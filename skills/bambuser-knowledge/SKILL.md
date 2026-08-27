@@ -14,13 +14,20 @@ The non-technical companion to `bambuser-integration`. This skill answers **prod
 
 **Routing between the two skills:** if the request is about embedding, cart/product-data code, tracking code, REST APIs, SSO configuration, mobile SDKs, or the App Framework → use `bambuser-integration`. If it's about *using* the products — shows, broadcasts, the dashboard, the agent tool, stats, capabilities, policies — it belongs here. Many conversations cross over; use both.
 
-## Sources, in priority order
+## Sources
 
-1. **The FAQ references in this skill** (`references/faqs-*.md`) — curated answers to ~370 real customer questions, organized by product and topic. Check the matching product file first; cross-product questions (accessibility, data retention, cookies, general capabilities) are in `faqs-cross-product.md`.
-2. **The public knowledge base** — `https://knowledge.bambuser.com` — for step-by-step dashboard/agent how-tos, tutorials, and troubleshooting written for non-developers. Fetch it live (mechanism below); it's the source of truth for UI walkthroughs, which change as the dashboard evolves.
-3. **The developer docs** — `https://bambuser.com/docs/llms.txt` — when a question turns out to have a technical edge (exact limits, event names, config). Fetch the specific `.md` page rather than answering from memory.
+**Authoritative — fetch live:**
 
-If the FAQ answer and a live source disagree, **the live source wins** — FAQ answers are snapshots.
+1. **The public knowledge base** — `https://knowledge.bambuser.com` — step-by-step dashboard/agent how-tos, tutorials, and troubleshooting written for non-developers. The source of truth for UI walkthroughs, which change as the dashboard evolves (mechanism below).
+2. **The developer docs** — `https://bambuser.com/docs/llms.txt` — when a question turns out to have a technical edge (exact limits, event names, config). Fetch the specific `.md` page rather than answering from memory.
+
+**A starting point, not an authority:**
+
+3. **The FAQ references in this skill** (`references/faqs-*.md`) — curated answers to ~370 real customer questions, organized by product and topic, exported from Bambuser's internal FAQ database. Use them to orient fast and to recognize a question you've seen before; cross-product questions (accessibility, data retention, cookies, general capabilities) are in `faqs-cross-product.md`.
+
+The FAQ files are **dated snapshots**. Where an FAQ answer and a live source disagree, **the live source wins** — and an FAQ answer about limits, tracking, regions, retention, or pricing is worth one live check before you repeat it.
+
+**Known-stale area — purchase tracking.** **Shopper Events Tracking is current.** Some FAQ answers still present the legacy "Conversion Tracking script" / `window._bambuser.collect` as *the* way to track purchases; that is out of date. The legacy conversion tracker is one event (`purchase`) of Shopper Events, it still works, and legacy installs should migrate. See `live/shopper-events-tracking.md` and `live/migrate-from-legacy-conversion-tracking.md`.
 
 ## Searching the knowledge base
 

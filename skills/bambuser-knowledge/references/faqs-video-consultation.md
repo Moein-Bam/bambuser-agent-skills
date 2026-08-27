@@ -13,14 +13,14 @@ In addition, we offer seamless integration with Appointedd and Booxi, streamlini
 
 Due to existing integration, connecting Appointedd or Booxi with Bambuser wouldn’t require any extra development more than possibly make the booking widget look good on your site. I.e no need to do any custom integration, you only need to make smaller config changes to have the solution up n running.
 
-More information can be found here: [https://bambuser.com/docs/one-to-one/how-to-integrate-your-booking-system](https://bambuser.com/docs/one-to-one/how-to-integrate-your-booking-system)
+More information can be found here: [https://bambuser.com/docs/video-consultation/how-to-integrate-your-booking-system](https://bambuser.com/docs/video-consultation/how-to-integrate-your-booking-system)
 
 
 ## 3rd Party Bookings/Other
 
 ### Can we connect 1:1 to our external booking system in order to schedule meetings with our customers?
 
-We support integration with any booking system without limitations from our end. However, it's the responsibility of each booking system to confirm the feasibility and support of integration steps. For technical guidance, refer to our documentation available [here](https://bambuser.com/docs/one-to-one/how-to-integrate-your-booking-system).
+We support integration with any booking system without limitations from our end. However, it's the responsibility of each booking system to confirm the feasibility and support of integration steps. For technical guidance, refer to our documentation available [here](https://bambuser.com/docs/video-consultation/how-to-integrate-your-booking-system).
 
 ### How to charge customers when booking a video consultation service? How to collect the service fee from caller who booked a consultation?
 
@@ -62,7 +62,7 @@ Blocking functionality is tied to a 28-day data retention policy for personally 
 
 Extending past 28 days can be done by adjusting the PII retention settings. However, this change would apply to all PII data, not just for the blocking feature, and requires careful consideration regarding data privacy compliance. Permanent blocking isn’t supported as IP addresses are often reassigned, which could unintentionally block legitimate customers in the future.
 
-We offer a Safety Face Blur feature to protect your team during video calls. You can read more about how it works here: [Safety Face Blur](https://knowledge.bambuser.com/one-to-one-privacy-settings/one-to-one-to-safety-blur?from_search=169572957).
+We offer a Safety Face Blur feature to protect your team during video calls. You can read more about how it works here: [Safety Face Blur](https://knowledge.bambuser.com/one-to-one-privacy-settings/one-to-one-to-safety-blur).
 
 For more details on PII processing and retention, you can refer to this documentation: [Bambuser PII Processing Information](https://bambuser.com/docs/agreement-details/#pii-processing-information).
 
@@ -101,7 +101,7 @@ Read more here.
 
 Post Consultation email can only be sent after a finished call, not during.
 
-See technical documentation [here](https://bambuser.com/docs/one-to-one/call-summary-email-integration).
+See technical documentation [here](https://bambuser.com/docs/video-consultation/call-summary-email-integration).
 
 ### How does the Call Summary email work?
 
@@ -115,7 +115,7 @@ To initiate the sending of summary data, manual action by the agents is required
 
 - Each agent must utilize the Call Summary form within the Agent Tool either after the call has ended or during the call via the app. The data can then be sent by clicking the "Send email" button.
 
-Read more [here](https://bambuser.com/docs/one-to-one/call-summary-email-integration)
+Read more [here](https://bambuser.com/docs/video-consultation/call-summary-email-integration)
 
 ### Is the agent/advisor able to check clients’ feedback?
 
@@ -201,7 +201,7 @@ Properties here:
 }
 ```
 
-Read more here: [https://liveshopping-api.bambuser.com/v1/docs/api/one-to-one?_gl=1*i8s0er*_gcl_au*MjEyNTUzMTUzMy4xNzQwNDgyMTA4*_ga*OTgwNDk1MDAzLjE3Mzk1MzIzNTM.*_ga_C4QDQ3BST1*MTc0MTA5NTE1MC42My4xLjE3NDEwOTYwODkuNTIuMC4w#section/Call-Summary](https://liveshopping-api.bambuser.com/v1/docs/api/one-to-one?_gl=1*i8s0er*_gcl_au*MjEyNTUzMTUzMy4xNzQwNDgyMTA4*_ga*OTgwNDk1MDAzLjE3Mzk1MzIzNTM.*_ga_C4QDQ3BST1*MTc0MTA5NTE1MC42My4xLjE3NDEwOTYwODkuNTIuMC4w#section/Call-Summary)
+Read more here: [https://liveshopping-api.bambuser.com/v1/docs/api/one-to-one#section/Call-Summary](https://liveshopping-api.bambuser.com/v1/docs/api/one-to-one#section/Call-Summary)
 
 ### Where can we see the post-call summary drawer in the agent tools to send a summary with a list of products presented and a copy of chat to clients after the agent ended the video consultation call?
 
@@ -265,7 +265,7 @@ Bambuser One-to-One solution has several features that utilize the concept of re
 
 As surfing in iframe across domain is not allowed, Bambuser triggers a “Leave a call Popup” in order to prevent call ending abruptly. 
 
-You can read more about the technology here: [https://bambuser.com/docs/one-to-one/miniplayer-compatibility](https://bambuser.com/docs/one-to-one/miniplayer-compatibility)
+You can read more about the technology here: [https://bambuser.com/docs/video-consultation/miniplayer-compatibility](https://bambuser.com/docs/video-consultation/miniplayer-compatibility)
 
 ### When clicking on a product in cobrowsing, website crashes
 
@@ -279,9 +279,9 @@ If website crashes when in cobrowsing mode, that usually means one of 3 things:
 
 You will know by which of above 3 issues is presenting a problem on your website by opening a console, and see which error you get. In Chrome, you open an error by right clicking on the screen and select “Inspect”. Then once you have do this, try to reproduce website crash again. Once it happens, an error will be printed in the console, which will point to one of the 3 issues above. 
 
-You can read more about the compatibility [here](https://bambuser.com/docs/one-to-one/miniplayer-compatibility).
+You can read more about the compatibility [here](https://bambuser.com/docs/video-consultation/miniplayer-compatibility).
 
-Note that if you are on Shopify → Shopify's technical limitations, the [Cobrowsing](https://bambuser.com/docs/one-to-one/cobrowsing), [Surf While in Queue](https://bambuser.com/docs/one-to-one/surf-while-in-queue) and [Miniplayer](https://bambuser.com/docs/one-to-one/floating-player) features are **not** compatible with Shopify stores. You will need to reach out to your Bambuser contact to disable Cobrowsing / Surf while in Queue features for you.
+Note that if you are on Shopify → Shopify's technical limitations, the [Cobrowsing](https://bambuser.com/docs/video-consultation/cobrowsing), [Surf While in Queue](https://bambuser.com/docs/video-consultation/surf-while-in-queue) and [Miniplayer](https://bambuser.com/docs/video-consultation/floating-player) features are **not** compatible with Shopify stores. You will need to reach out to your Bambuser contact to disable Cobrowsing / Surf while in Queue features for you.
 
 ### When I click browse in Agent tool, it redirects me to the wrong website
 
@@ -402,7 +402,7 @@ Agents can search for keywords or other product related information in the Agent
 
 Products returned will be listed below the search field.
 
-Tech specs can be found here: [https://bambuser.com/docs/one-to-one/providing-search-data](https://bambuser.com/docs/one-to-one/providing-search-data)
+Tech specs can be found here: [https://bambuser.com/docs/video-consultation/providing-search-data](https://bambuser.com/docs/video-consultation/providing-search-data)
 
 ### How does the product hydration work?
 
@@ -416,7 +416,7 @@ High level what happens is that:
 
 ### How is "Related Products" configured and where is it shown in the Call Widget?
 
-Adding related products as part of the integration code is optional. Find more information [here](https://bambuser.com/docs/one-to-one/provide-product-data#related-products-optional).
+Adding related products as part of the integration code is optional. Find more information [here](https://bambuser.com/docs/video-consultation/provide-product-data#related-products-optional).
 
 Code examples can also be found further down on that very same page.
 
@@ -466,7 +466,7 @@ No. The Merchant can decide exactly how many queues they want and what to name t
 
 ### Can a custom background (beyond the default blur) be used during virtual consultation calls?
 
-Beside blur, we also support Virtual Background - read more here: [https://knowledge.bambuser.com/one-to-one-privacy-settings/virtual-background?from_search=189363682](https://knowledge.bambuser.com/one-to-one-privacy-settings/virtual-background?from_search=189363682)
+Beside blur, we also support Virtual Background - read more here: [https://knowledge.bambuser.com/one-to-one-privacy-settings/virtual-background](https://knowledge.bambuser.com/one-to-one-privacy-settings/virtual-background)
 
 
 ## Agent Tool/Shopper Information
@@ -514,7 +514,7 @@ The collected Shopper Form data is accessible in **Bam Hub** under **Stats → E
 
 💡 **Note:** Certain Personally Identifiable Information (PII), like email addresses, is automatically deleted after 28 days (configurable).
 
-SEE more here: [https://knowledge.bambuser.com/one-to-one-during-a-call/shopper-form?from_search=175771910](https://knowledge.bambuser.com/one-to-one-during-a-call/shopper-form?from_search=175771910)
+SEE more here: [https://knowledge.bambuser.com/one-to-one-during-a-call/shopper-form](https://knowledge.bambuser.com/one-to-one-during-a-call/shopper-form)
 
 ### When a customer leaves the virtual consultation queue and fills out the contact details form, how can the agent/manager be notified?
 
@@ -546,7 +546,7 @@ Hovering over the button will tell you why exactly it is disabled.  Most commonl
     
     SKU that you provide to Bambuser through code - Product Hydration (1) needs to match the SKU that you put in Perfect Corp under SKU ID (2). Otherwise agent will not have an active "Try Out" button within Bambuser Agent tool for those products. 
     
-    1. [Product Hydration](https://bambuser.com/docs/one-to-one/provide-product-data) (Bambuser Integration code)
+    1. [Product Hydration](https://bambuser.com/docs/video-consultation/provide-product-data) (Bambuser Integration code)
     
     2. Product set up within Perfect Corp 
     
@@ -557,7 +557,7 @@ Hovering over the button will tell you why exactly it is disabled.  Most commonl
     > - During the call, agent searches for a specific product. When they do that "provide-search-data" event will be triggered on the client side.
     > 
     > 
-    > [Therefore you should handle that event in Integration codes](https://bambuser.com/docs/one-to-one/providing-search-data)
+    > [Therefore you should handle that event in Integration codes](https://bambuser.com/docs/video-consultation/providing-search-data)
     > 
     
     
@@ -653,7 +653,7 @@ Yes, agents can add a "Note" in the user interface before triggering the call-su
 
 ### Can we send product recommendation emails through Bambuser?
 
-Bambuser allows agents to send a call-summary email after a consultation. When the agent clicks the button to send this email, Bambuser triggers a [call-summary webhook](https://bambuser.com/docs/one-to-one/call-summary-email-integration) i that includes the products discussed during the call. You, as the merchant, need to handle this webhook payload and send the email yourself, as Bambuser does not support sending these emails directly.
+Bambuser allows agents to send a call-summary email after a consultation. When the agent clicks the button to send this email, Bambuser triggers a [call-summary webhook](https://bambuser.com/docs/video-consultation/call-summary-email-integration) i that includes the products discussed during the call. You, as the merchant, need to handle this webhook payload and send the email yourself, as Bambuser does not support sending these emails directly.
 
 ### If a customer replies to the recommendation email, will their response be managed within Bambuser or our customer support system?
 
@@ -663,7 +663,7 @@ Since Bambuser does not send the recommendation email directly, it is not involv
 
 We provide webhooks that they can setup and use in your SMS notification system. And it is possible to configure to turn off the email reminder but keep the confirmation email. So yes, if you do the integration with webhooks and use your own sms notification system
 
-See webhooks docs here: [https://liveshopping-api.bambuser.com/v1/docs/api/one-to-one?_gl=1*nuki8o*_ga*MTM0Njg0ODI2OS4xNzM4ODM3NTg1*_ga_C4QDQ3BST1*MTczOTM1NDgzOS41OC4xLjE3MzkzNTQ4NDYuNTMuMC4w#section/Appointment](https://liveshopping-api.bambuser.com/v1/docs/api/one-to-one?_gl=1*nuki8o*_ga*MTM0Njg0ODI2OS4xNzM4ODM3NTg1*_ga_C4QDQ3BST1*MTczOTM1NDgzOS41OC4xLjE3MzkzNTQ4NDYuNTMuMC4w#section/Appointment)
+See webhooks docs here: [https://liveshopping-api.bambuser.com/v1/docs/api/one-to-one#section/Appointment](https://liveshopping-api.bambuser.com/v1/docs/api/one-to-one#section/Appointment)
 
 
 ## Bam Bookings/Email
@@ -746,7 +746,7 @@ You can integrate your own booking system with the Bambuser One-to-One call widg
 
 Yes. The booking calendar automatically detects and defaults to the timezone of the person booking the appointment. This helps minimize errors where customers might accidentally book slots based on the agent's location rather than their own.
 
-> **Note:** For more details on how this is handled, you can refer to our troubleshooting guide on [https://knowledge.bambuser.com/video-consultation-troubleshooting/troubleshooting-incorrect-pre-selected-timezone-in-call-widget-booking-calendar?from_search=223277476](https://knowledge.bambuser.com/video-consultation-troubleshooting/troubleshooting-incorrect-pre-selected-timezone-in-call-widget-booking-calendar?from_search=223277476)
+> **Note:** For more details on how this is handled, you can refer to our troubleshooting guide on [https://knowledge.bambuser.com/video-consultation-troubleshooting/troubleshooting-incorrect-pre-selected-timezone-in-call-widget-booking-calendar](https://knowledge.bambuser.com/video-consultation-troubleshooting/troubleshooting-incorrect-pre-selected-timezone-in-call-widget-booking-calendar)
 >
 
 ### Do you use CAPTCHA or other methods to prevent bots from spamming the booking form?
@@ -816,9 +816,9 @@ It is possible for shoppers to continue to browse on the site while waiting in q
 
 When they click the minimize symbol on the call widget, it will move to the page's bottom.
 
-Read more about this feature in the [documenation](https://bambuser.com/docs/one-to-one/surf-while-in-queue).
+Read more about this feature in the [documenation](https://bambuser.com/docs/video-consultation/surf-while-in-queue).
 
-Note that this feature utilize the concept of rendering your website inside an `iframe`. Read more about this [here](https://bambuser.com/docs/one-to-one/miniplayer-compatibility/).
+Note that this feature utilize the concept of rendering your website inside an `iframe`. Read more about this [here](https://bambuser.com/docs/video-consultation/miniplayer-compatibility/).
 
 ### How do you distribute drop in calls between the agents?
 
@@ -854,7 +854,7 @@ Products presented to the customer can be easily compared against each other thr
 
 Note: The performance of tools hosted by us, such as comparing product attributes, improves with the depth of product information available. Attributes presented can be customized to display only those features relevant to the customer's interests.
 
-For further information on comparable attributes, read more [here](https://bambuser.com/docs/one-to-one/provide-product-data#comparable-attributes-optional).
+For further information on comparable attributes, read more [here](https://bambuser.com/docs/video-consultation/provide-product-data#comparable-attributes-optional).
 
 ### What formats are supported for QR & barcodes?
 
@@ -967,7 +967,7 @@ Currently opening hours is configurable only globally per organization. Therefor
 
 Yes. This is easily configured in the Admin Dashboard.
 
-More information and instructions on how to can be found [here](https://knowledge.bambuser.com/one-to-one-manage-the-dashboard/one-t-manage-queues?from_search=146729703).
+More information and instructions on how to can be found [here](https://knowledge.bambuser.com/one-to-one-manage-the-dashboard/one-t-manage-queues).
 
 
 ## Dashboard/Other
@@ -988,7 +988,7 @@ This is done in the Admin Dashboard. Settings can be found in the bottom left co
 
 ### Can we see if we have recurring customers using one-to-one?
 
-Bambuser does not display whether you have recurring customer and how many time that customer has been calling. However you can track this in different ways on your end. Each call includes a `client_id` that is unique for one customer. You can find this either in the CSV report or through [tracking events.](https://bambuser.com/docs/one-to-one/tracking-events)
+Bambuser does not display whether you have recurring customer and how many time that customer has been calling. However you can track this in different ways on your end. Each call includes a `client_id` that is unique for one customer. You can find this either in the CSV report or through [tracking events.](https://bambuser.com/docs/video-consultation/tracking-events)
 
 ### Which data is included in the stat pages and how often is the data updated?
 
@@ -1093,7 +1093,7 @@ Note that the while we try to keep the service consistent and compatible in the 
 
 ### Does Bambuser have an mobile SDK for 1:1 ?
 
-Bambuser does not have a mobile SDK for 1:1, however the Web call-widget is compatible to put in a webView. So if you want it in your native apps it is still possible to achieve it with that path. Unfortunately we do not have specific guides for embedding Call Widget in webview documented, but your mobile developers can achieve it by reading our web-integration guides: [https://bambuser.com/docs/one-to-one/](https://bambuser.com/docs/one-to-one/)
+Bambuser does not have a mobile SDK for 1:1, however the Web call-widget is compatible to put in a webView. So if you want it in your native apps it is still possible to achieve it with that path. Unfortunately we do not have specific guides for embedding Call Widget in webview documented, but your mobile developers can achieve it by reading our web-integration guides: [https://bambuser.com/docs/video-consultation/](https://bambuser.com/docs/video-consultation/)
 
 ### Does the virtual consultation solution cause significant battery consumption on iPhones and iPads?
 

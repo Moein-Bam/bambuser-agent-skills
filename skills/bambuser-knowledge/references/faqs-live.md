@@ -37,11 +37,11 @@ Yes, you can either see it in exported report in the dashboard, or listen to tra
 
 ### Can we track product purchases that we made on a different website/ domain?
 
-Using our [Conversion Tracker](https://bambuser.com/docs/one-to-many/conversion-tracking), you cannot track product purchases that we made on a different website/ domain that the player is embedded on. However, it is technically possible to do this on your end by adding product affiliate links to Bambuser player.
+Using our [Conversion Tracker](https://bambuser.com/docs/live/conversion-tracking), you cannot track product purchases that we made on a different website/ domain that the player is embedded on. However, it is technically possible to do this on your end by adding product affiliate links to Bambuser player.
 
 ### How to integrate Bambuser Conversion Tracking inside a native mobile app?
 
-You can only impleement Conversion Tracking if you are utilizing our native SDKs. For webview, we do not offer Conversion Tracking. Read more here [https://bambuser.com/docs/one-to-many/mobile-app-integration](https://bambuser.com/docs/one-to-many/mobile-app-integration)
+You can only impleement Conversion Tracking if you are utilizing our native SDKs. For webview, we do not offer Conversion Tracking. Read more here: [iOS](https://bambuser.com/docs/live/mobile-sdk-integration-ios/tracking/), [Android](https://bambuser.com/docs/live/mobile-sdk-integration-android/tracking/), [React Native](https://bambuser.com/docs/live/mobile-sdk-integration-react-native/tracking/)
 
 ### When using Bambuser's tracking script, does the script send the entire product array from a purchase, or only the products that were part of videos?
 
@@ -65,11 +65,11 @@ Bambuser One-to-Many player emits most of events and user interactions. That dat
 We emit the events and user interactions in two ways:
 
 - Through a tracking point
-    - Read more about [how to listen to the Bambuser tracking point](https://bambuser.com/docs/one-to-many/player-metrics#listening-to-events)
+    - Read more about [how to listen to the Bambuser tracking point](https://bambuser.com/docs/live/player-metrics#listening-to-events)
 - By pushing to the data layer
-    - Read more about [how to get events into the data layer](https://bambuser.com/docs/one-to-many/player-metrics#picking-up-events-data-from-datalayer)
+    - Read more about [how to get events into the data layer](https://bambuser.com/docs/live/player-metrics#picking-up-events-data-from-datalayer)
 
-There are also other ways to access Bambuser analytics data. You can read more on [Access analytics data](https://bambuser.com/docs/one-to-many/access-analytics-data).
+There are also other ways to access Bambuser analytics data. You can read more on [Access analytics data](https://bambuser.com/docs/live/access-analytics-data).
 
 ### What is a “session”
 
@@ -109,7 +109,7 @@ While Bambuser has no hard limit on streaming duration, external platforms like 
 3. Select **Reconnect** to enable the show to accept the incoming stream again.
 
  
-To manage RTMP (External camera) show interruptions, see our support guide: [What to do if an RTMP show goes down](https://knowledge.bambuser.com/mobile/what-to-do-if-a-rtmp-show-goes-down?from_search=167187526).
+To manage RTMP (External camera) show interruptions, see our support guide: [What to do if an RTMP show goes down](https://knowledge.bambuser.com/mobile/what-to-do-if-a-rtmp-show-goes-down).
 
 ### Does Bambuser support SRT for external cameras via RTMP
 
@@ -237,7 +237,7 @@ If they went live with mobile app, then we don’t show as you go live from the 
 
 ### When doing dual hosting, second host was stuck in waiting room
 
-According to the Dual Hosting documentation ([https://knowledge.bambuser.com/app/split-screen?from_search=149166614](https://knowledge.bambuser.com/app/split-screen?from_search=149166614)), this feature is only supported when both hosts are using iOS devices. If second host is stuck in waiting room, then this is typically due to one of the hosts using an Android device.
+According to the Dual Hosting documentation ([https://knowledge.bambuser.com/app/split-screen](https://knowledge.bambuser.com/app/split-screen)), this feature is only supported when both hosts are using iOS devices. If second host is stuck in waiting room, then this is typically due to one of the hosts using an Android device.
 
 
 ## Broadcasting/Video or Audio
@@ -366,7 +366,7 @@ Accurate tracking requires users to be directed to pages where the merchant’s 
 
 ### What is the difference between standard and "advanced buttons" in social selling?
 
-In standard social selling, users are directed to a product detail page (PDP) with UTM parameters appended to the URL for tracking. With "advanced social selling," users receive DM messages with buttons to select product variants or sizes. After selection, they are directed to a specific page on the merchant’s domain where embed.js is loaded, allowing for automated add-to-cart or checkout actions using query parameters or hash fragments. See more here: [https://knowledge.bambuser.com/socialcommercefeatures/social-selling?from_search=191502052#start-using-add-to-bag-buttons-on-instagram-6](https://knowledge.bambuser.com/socialcommercefeatures/social-selling?from_search=191502052#start-using-add-to-bag-buttons-on-instagram-6)
+In standard social selling, users are directed to a product detail page (PDP) with UTM parameters appended to the URL for tracking. With "advanced social selling," users receive DM messages with buttons to select product variants or sizes. After selection, they are directed to a specific page on the merchant’s domain where embed.js is loaded, allowing for automated add-to-cart or checkout actions using query parameters or hash fragments. See more here: [https://knowledge.bambuser.com/socialcommercefeatures/social-selling#start-using-add-to-bag-buttons-on-instagram-6](https://knowledge.bambuser.com/socialcommercefeatures/social-selling#start-using-add-to-bag-buttons-on-instagram-6)
 
 ### When multistreaming with social selling and when a viewer types in the code to the chat, will they only receive 1 DM for the product being featured at that moment? Will they receive multiple DMs that link to all of the products featured throughout the live?
 
@@ -499,7 +499,7 @@ Chat messages from both the host and moderator are always synced with the actual
 
 ### Does the live streaming feature offer the opportunity to show a text or cover image before the event starts?
 
-Yes, you have the ability to set custom curtain images for pre-screen, paused screen, and ended screen. See more here: [https://knowledge.bambuser.com/player-settings/pre-show,-post-show,-and-pause-screens?from_search=191501899](https://knowledge.bambuser.com/player-settings/pre-show,-post-show,-and-pause-screens?from_search=191501899)
+Yes, you have the ability to set custom curtain images for pre-screen, paused screen, and ended screen. See more here: [https://knowledge.bambuser.com/player-settings/pre-show,-post-show,-and-pause-screens](https://knowledge.bambuser.com/player-settings/pre-show,-post-show,-and-pause-screens)
 
 ### Why does my show say "Not available"?
 
@@ -636,18 +636,18 @@ This will transfer all product links to the new show.
 
 When you add a product to the show, our scraper goes on your PDP and tries to make a request to fetch product information. 
 
-- If that information cannot be fetched then you most likely have to whitelist our product scraper: [https://bambuser.com/docs/one-to-many/data-scraping#whitelist-the-scraper](https://bambuser.com/docs/one-to-many/data-scraping#whitelist-the-scraper)
-- If information is fetched but not the right information is populated, then you most likely have to adjust your product structure on your page, so that our scraper can fetch correct information: [https://bambuser.com/docs/one-to-many/data-scraping#how-does-the-product-scraper-work](https://bambuser.com/docs/one-to-many/data-scraping#how-does-the-product-scraper-work)
+- If that information cannot be fetched then you most likely have to whitelist our product scraper: [https://bambuser.com/docs/live/data-scraping#whitelist-the-scraper](https://bambuser.com/docs/live/data-scraping#whitelist-the-scraper)
+- If information is fetched but not the right information is populated, then you most likely have to adjust your product structure on your page, so that our scraper can fetch correct information: [https://bambuser.com/docs/live/data-scraping#how-does-the-product-scraper-work](https://bambuser.com/docs/live/data-scraping#how-does-the-product-scraper-work)
 
 ### Our Scraped data doesn’t show the correct thing
 
 When you add a product to a show in the Bambuser Live Shopping Dashboard, some basic product details are scraped from the content of the given product URL. In order to that to work correctly, your PDPs have to be defined in the same structure that our scraper expects. 
 
-Make sure to read more about what structure our scraper expects here: [https://bambuser.com/docs/one-to-many/data-scraping#how-does-the-product-scraper-work](https://bambuser.com/docs/one-to-many/data-scraping#how-does-the-product-scraper-work). Most recommended structure is **JSON-LD** as it is the most prioritized by our scraper.
+Make sure to read more about what structure our scraper expects here: [https://bambuser.com/docs/live/data-scraping#how-does-the-product-scraper-work](https://bambuser.com/docs/live/data-scraping#how-does-the-product-scraper-work). Most recommended structure is **JSON-LD** as it is the most prioritized by our scraper.
 
 Besides that, make sure the this data is server side rendered on your site.
 
-If all above is already done, you might have to whitelist our scraper [https://bambuser.com/docs/one-to-many/data-scraping#whitelist-the-scraper](https://bambuser.com/docs/one-to-many/data-scraping#whitelist-the-scraper). If you whitelist our IP address from your side, you also need to inform Bambuser staff to enable 'Static IP proxy' for your organization.
+If all above is already done, you might have to whitelist our scraper [https://bambuser.com/docs/live/data-scraping#whitelist-the-scraper](https://bambuser.com/docs/live/data-scraping#whitelist-the-scraper). If you whitelist our IP address from your side, you also need to inform Bambuser staff to enable 'Static IP proxy' for your organization.
 
 To check your specific example, you can navigate to Settings -> Integrations -> Products -> Paste your product URL there and click "Run Test".
 
@@ -666,7 +666,7 @@ Alternatively, if the catalog is intentionally kept private, consider embedding 
 
 When adding products to a show by adding product URLs, Bambuser product scraper is looking for structured product data markups on your product page to extract product details.
 
-To learn more about the recommended data markups and examples, check out this documentation: [https://bambuser.com/docs/one-to-many/data-scraping](https://bambuser.com/docs/one-to-many/data-scraping)
+To learn more about the recommended data markups and examples, check out this documentation: [https://bambuser.com/docs/live/data-scraping](https://bambuser.com/docs/live/data-scraping)
 
 You can provide your desired information through one of the supported structured product data markups to the Bambuser product data scraper.
 
@@ -678,9 +678,9 @@ When you are adding/importing your product URLs to a show, if you receive a 403 
 
 We recommend that you reach out to your developers/ server administrators of your mentioned website and ask them to investigate the reason why the requests from Bambuser are blocked.
 
-If needed your developers can follow the instructions to [whitelist Bambuser product scraper](https://bambuser.com/docs/one-to-many/data-scraping/#whitelist-the-scraper) in order to resolve this issue.
+If needed your developers can follow the instructions to [whitelist Bambuser product scraper](https://bambuser.com/docs/live/data-scraping/#whitelist-the-scraper) in order to resolve this issue.
 
-[https://bambuser.com/docs/one-to-many/data-scraping/#whitelist-the-scraper](https://bambuser.com/docs/one-to-many/data-scraping/#whitelist-the-scraper)
+[https://bambuser.com/docs/live/data-scraping/#whitelist-the-scraper](https://bambuser.com/docs/live/data-scraping/#whitelist-the-scraper)
 
 ### Why do I get the error (No SKU found on the page – Adding URL as the reference instead)?
 
@@ -690,7 +690,7 @@ You can manually edit a product details and update required product fields.
 
 For more information on how to fix this and troubleshooting see the below link.
 
-[https://bambuser.com/docs/one-to-many/data-scraping/](https://bambuser.com/docs/one-to-many/data-scraping/)
+[https://bambuser.com/docs/live/data-scraping/](https://bambuser.com/docs/live/data-scraping/)
 
 
 ## Dashboard/Profile
@@ -785,7 +785,7 @@ It's disabled by default and can be enabled by customers if they want.
 
 ### Does Bambuser support customizing the player PDP UI? We have our own product card components, and we’d like to reuse them in the livestream.
 
-- Bambuser's in-player PDP is managed through the Theming UI in your dashboard, with options detailed here: [https://knowledge.bambuser.com/onboarding-bambuser/step-3-brand-your-player?from_search=182417628#player-design-process-0](https://knowledge.bambuser.com/onboarding-bambuser/step-3-brand-your-player?from_search=182417628#player-design-process-0). Please note that customization is limited to the settings available within that interface. To utilize the in-player PDP functionality (displaying product details directly within the player), cart integration must be enabled. You can find information on setting up cart integration here: [https://bambuser.com/docs/live/cart-integration/](https://bambuser.com/docs/live/cart-integration/). If cart integration is not active, clicking a product will redirect users to the product's page on your own website (your native PDP URL)
+- Bambuser's in-player PDP is managed through the Theming UI in your dashboard, with options detailed here: [https://knowledge.bambuser.com/onboarding-bambuser/step-3-brand-your-player#player-design-process-0](https://knowledge.bambuser.com/onboarding-bambuser/step-3-brand-your-player#player-design-process-0). Please note that customization is limited to the settings available within that interface. To utilize the in-player PDP functionality (displaying product details directly within the player), cart integration must be enabled. You can find information on setting up cart integration here: [https://bambuser.com/docs/live/cart-integration/](https://bambuser.com/docs/live/cart-integration/). If cart integration is not active, clicking a product will redirect users to the product's page on your own website (your native PDP URL)
 - Alternatively, for more comprehensive customization and control, you can leverage Bambuser's App Framework. This allows you to design a custom application interface but requires greater development effort on your end. Read more about the App Framework here: [https://bambuser.com/docs/app-framework/build/api/screen/](https://bambuser.com/docs/app-framework/build/api/screen/).
 
 
@@ -872,9 +872,9 @@ To confirm that you only have a CTA element specified on your page but not Bambu
 
 ### I can't add to cart during test
 
-You need to make sure that you have [cart integration](https://bambuser.com/docs/one-to-many/cart-integration) implemented and all event handlers are running correctly.
+You need to make sure that you have [cart integration](https://bambuser.com/docs/live/cart-integration) implemented and all event handlers are running correctly.
 
-If you have [cart integration](https://bambuser.com/docs/one-to-many/cart-integration) implemented, you can debug further using browser dev tools.
+If you have [cart integration](https://bambuser.com/docs/live/cart-integration) implemented, you can debug further using browser dev tools.
 
 ### When clicking a CTA on our page to open the show, nothing happens
 
@@ -1188,9 +1188,9 @@ If website crashes when clicking on a product in miniplayer mode, that usually m
 
 You will know by which of above 3 issues is presenting a problem on your website by opening a console, and see which error you get. In Chrome, you open an error by right clicking on the screen and select “Inspect”. Then once you have do this, try to reproduce website crash again. Once it happens, an error will be printed in the console, which will point to one of the 3 issues above. 
 
-You can read more about the compatibility [here](https://bambuser.com/docs/one-to-many/miniplayer-compatibility).
+You can read more about the compatibility [here](https://bambuser.com/docs/live/miniplayer-compatibility).
 
-Note that if you are on Shopify → Shopify's technical limitations, the [Miniplayer](https://bambuser.com/docs/one-to-many/miniplayer) features are **not** compatible with Shopify stores. You will need to [disable the Miniplayer](https://bambuser.com/docs/one-to-many/miniplayer#disabling-the-miniplayer) in that case.
+Note that if you are on Shopify → Shopify's technical limitations, the [Miniplayer](https://bambuser.com/docs/live/miniplayer) features are **not** compatible with Shopify stores. You will need to [disable the Miniplayer](https://bambuser.com/docs/live/miniplayer#disabling-the-miniplayer) in that case.
 
 ### Why does our page reloads when I minimize the player
 
@@ -1200,7 +1200,7 @@ Iframe is created over the your landing page to let your end customers surf the 
 
 There is a brief moment when your website's iframe is getting rendered which is causing expected "reload" experience. Note that this isnt an actual page reload, it is just your website’s iframe getting rendered.
 
-If you have an SPA website, you can get around this by implementing manual navigation mode. Just note that when you implement manual navigation mode, yu should also handle **`player.EVENT.NAVIGATE_BEHIND_TO`** event. Read more here: [https://bambuser.com/docs/one-to-many/miniplayer#for-spa-websites](https://bambuser.com/docs/one-to-many/miniplayer#for-spa-websites)
+If you have an SPA website, you can get around this by implementing manual navigation mode. Just note that when you implement manual navigation mode, yu should also handle **`player.EVENT.NAVIGATE_BEHIND_TO`** event. Read more here: [https://bambuser.com/docs/live/miniplayer#for-spa-websites](https://bambuser.com/docs/live/miniplayer#for-spa-websites)
 
 
 ## Player/Other
@@ -1222,7 +1222,7 @@ In order for product showing inside the player, you will have to integrate Cart 
 - `CHECKOUT`
 - `SYNC CART STATE`
 
-Read more here: [https://bambuser.com/docs/one-to-many/cart-integration](https://bambuser.com/docs/one-to-many/cart-integration)
+Read more here: [https://bambuser.com/docs/live/cart-integration](https://bambuser.com/docs/live/cart-integration)
 
 ### Is it possible to implement time-limited offers, like a price available for only 10 minutes, in a live show?
 
@@ -1670,7 +1670,7 @@ Based on your integration the language and the product information should come i
 
 ndeed you can only edit the default language in the Get-Started Guide, for the rest of the Chat Terms needs to be manually edited directly in the Translations sections.
 
-[See guide here: Chat Terms: Multiple languages](https://knowledge.bambuser.com/settings/modify-chat-terms?from_search=179380009#:~:text=about%20the%20change.-,Multiple%20languages,-The%20method%20outlined)
+[See guide here: Chat Terms: Multiple languages](https://knowledge.bambuser.com/settings/modify-chat-terms#:~:text=about%20the%20change.-,Multiple%20languages,-The%20method%20outlined)
 
 
 ## REST API
@@ -1766,7 +1766,7 @@ If a product is highlighted in more than one show, multiple deeplinks will be av
 
 There is no limitation on the number of Channels you can embed on a single page on your website. 
 
-Read more about how to embed Channels on your website here: [https://bambuser.com/docs/one-to-many/channel](https://bambuser.com/docs/one-to-many/channel)
+Read more about how to embed Channels on your website here: [https://bambuser.com/docs/live/channel](https://bambuser.com/docs/live/channel)
 
 ### How do I change the layout of my Channels to look like the preview?
 

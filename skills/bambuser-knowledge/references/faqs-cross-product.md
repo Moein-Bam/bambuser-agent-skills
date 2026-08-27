@@ -34,7 +34,7 @@ These cookies are essential for Conversion Tracking to function. While we genera
 
 *Applies to: Live, Video-Consultation*
 
-Purchases are tracked using the "bambuser Conversion tracking script" which a client implements on their website. Read more about how to implement Conversion Tracker here: [https://bambuser.com/docs/one-to-many/conversion-tracking](https://bambuser.com/docs/one-to-many/conversion-tracking)
+Purchases are tracked using the "bambuser Conversion tracking script" which a client implements on their website. Read more about how to implement Conversion Tracker here: [https://bambuser.com/docs/live/conversion-tracking](https://bambuser.com/docs/live/conversion-tracking)
 
 When end user interacts with Bambuser product, they will get some cookies injected on their browser. If they then make a purchase in the next 30 days, that purchase will count toward that show / call. This will only happen if cookies are still there → Meaning that end-user will have to be on same browser, same device and they should not have cleared cookies.
 
@@ -44,7 +44,7 @@ When end user interacts with Bambuser product, they will get some cookies inject
 
 #### How does Bambuser Track Purhcases
 
-Purchases are tracked using the "Bambuser Conversion Tracking script" which a merchant’s implements on their website. Using the collect method of the script, purchases are sent to our servers. See how to implement Bambuser Conversion Tracker here: [https://bambuser.com/docs/one-to-many/conversion-tracking](https://bambuser.com/docs/one-to-many/conversion-tracking)
+Purchases are tracked using the "Bambuser Conversion Tracking script" which a merchant’s implements on their website. Using the collect method of the script, purchases are sent to our servers. See how to implement Bambuser Conversion Tracker here: [https://bambuser.com/docs/live/conversion-tracking](https://bambuser.com/docs/live/conversion-tracking)
 
 #### What qualifies as a purchase (and when do we track them) in One-to-Many?
 
@@ -64,7 +64,7 @@ We track the currency a purchase was made in and make it available to see the to
 
 *Applies to: Live, Video-Consultation*
 
-- You can download the tracked purchase data from the Bambuser dashboard in CSV format. Learn more on [Stats CSV Export](https://knowledge.bambuser.com/csv-file?from_search=103420576).
+- You can download the tracked purchase data from the Bambuser dashboard in CSV format. Learn more on [Stats CSV Export](https://knowledge.bambuser.com/csv-file).
 
 ### In Bambuser we cannot see any purchase data?
 
@@ -73,7 +73,7 @@ We track the currency a purchase was made in and make it available to see the to
 There could be many reasons for that. 
 
 1. You have just made a purchase and stats have not yet been updated. This can take up to few hours. 
-2. You have not followed the proper steps when testing. Please follow it here: [https://bambuser.com/docs/one-to-many/conversion-tracking#troubleshoot](https://bambuser.com/docs/one-to-many/conversion-tracking#troubleshoot)
+2. You have not followed the proper steps when testing. Please follow it here: [https://bambuser.com/docs/live/conversion-tracking#troubleshoot](https://bambuser.com/docs/live/conversion-tracking#troubleshoot)
 3. The URL for the tracking library is different based on the region your dashbaord was created. You must use the URL that is associated with their dashboard’s region.
     - Global: [https://cdn.liveshopping.bambuser.com/metrics/bambuser.min.js](https://cdn.liveshopping.bambuser.com/metrics/bambuser.min.js)
     - EU: [https://cdn.liveshopping.bambuser.com/metrics/bambuser-eu.min.js](https://cdn.liveshopping.bambuser.com/metrics/bambuser-eu.min.js)
@@ -202,7 +202,7 @@ To install an app ([App Framework](https://bambuser.com/docs/app-framework/)) on
 
 - Steps:
     1. [Create an Installation key](https://liveshopping-api.bambuser.com/v1/docs/api?id=apps#tag/Apps/paths/~1apps~1:id~1installation-keys/post) using an API key belong to the organization/BamHub/dashboard that initially created the app (app owner). If you do not own the app, you need to request an installation key from the app developer.
-    2. On your other dashboard (which you want to install the app on), [create an API key](https://knowledge.bambuser.com/settings/generating-api-keys?from_search=215695445&_gl=1*ff836*_up*MQ..*_ga*NDcyMzgzMzI2LjE3Njg4MTM5MzY.*_ga_QFYPV5WLP2*czE3Njg4MTM5MzUkbzEkZzAkdDE3Njg4MTM5MzUkajYwJGwwJGgw*_ga_T0VEGRM8XS*czE3Njg4MTM5MzUkbzEkZzAkdDE3Njg4MTM5MzUkajYwJGwwJGgw*_ga_5B2YTVHZZ3*czE3Njg4MTM5MzUkbzEkZzAkdDE3Njg4MTM5MzUkajYwJGwwJGgw) with relevant `App Developers` scopes granted.
+    2. On your other dashboard (which you want to install the app on), [create an API key](https://knowledge.bambuser.com/settings/generating-api-keys) with relevant `App Developers` scopes granted.
     3. [Install the app](https://liveshopping-api.bambuser.com/v1/docs/api?id=apps#tag/Installations/paths/~1app-installations/post) using the API key you created under the target organization's dashboard.
 
 
@@ -225,7 +225,7 @@ Yes. Although more product data can be hydrated in the product integration for 1
 
 **Specifics for 1:1:**
 
-The product integration (hydration) can be done either through [provide product data](https://bambuser.com/docs/one-to-one/provide-product-data) or [provide search data](https://bambuser.com/docs/one-to-one/providing-search-data), meaning agents will be able to add products to the call in different ways depending on the chosen integration.
+The product integration (hydration) can be done either through [provide product data](https://bambuser.com/docs/video-consultation/provide-product-data) or [provide search data](https://bambuser.com/docs/video-consultation/providing-search-data), meaning agents will be able to add products to the call in different ways depending on the chosen integration.
 
 
 ## Call Widget/Translations
@@ -315,7 +315,7 @@ The Bambuser [One-to-Many](https://liveshopping-api.bambuser.com/v1/docs/api/on
 
 - **Client-side tracking**
 
-[Bambuser Player Metrics](https://bambuser.com/docs/one-to-many/player-metrics/) exposes most events and interactions made by each user. Bambuser Player Metrics's data is available to be listened to on the front-end where the Bambuser player is embedded.
+[Bambuser Player Metrics](https://bambuser.com/docs/live/player-metrics/) exposes most events and interactions made by each user. Bambuser Player Metrics's data is available to be listened to on the front-end where the Bambuser player is embedded.
 
 **One-to-One**
 
@@ -325,7 +325,7 @@ The Bambuser [One-to-One](https://liveshopping-api.bambuser.com/v1/docs/api/one
 
 - **Client-side tracking**
 
-[Bambuser One-to-One event tracking](https://bambuser.com/docs/one-to-one/tracking-events) also provides additional client-side user tracking that can be implemented on the merchant's site or front-end application.
+[Bambuser One-to-One event tracking](https://bambuser.com/docs/video-consultation/tracking-events) also provides additional client-side user tracking that can be implemented on the merchant's site or front-end application.
 
 
 ## Dashboard/Theming
@@ -484,7 +484,7 @@ The audit performs with regards to Web Content Accessibility Guidelines (WCAG) 2
 
 We use AWS and GCP, read more on sustainability from both providers here: 
 
-- https://aws.amazon.com/sustainability/?nc1=h_ls
+- https://aws.amazon.com/sustainability/
 
 - [https://sustainability.google/](https://sustainability.google/)
 
