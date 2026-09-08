@@ -12,8 +12,8 @@ Both are deliberately **thin**: the durable concepts and gotchas live in the ski
 ## Install
 
 ```bash
-npx skills add bambuser/agent-skills      # into the current project
-npx skills add -g bambuser/agent-skills   # or globally, for all your projects
+npx skills add bambuser/bambuser-agent-skills      # into the current project
+npx skills add -g bambuser/bambuser-agent-skills   # or globally, for all your projects
 ```
 
 > **claude.ai users (one-time):** allow `bambuser.com` and `knowledge.bambuser.com` at [claude.ai/settings/capabilities](https://claude.ai/settings/capabilities), or the skills can't fetch the docs they rely on.
@@ -24,7 +24,7 @@ npx skills add -g bambuser/agent-skills   # or globally, for all your projects
 <summary><b>Alternative — manual copy</b></summary>
 
 ```bash
-git clone https://github.com/bambuser/agent-skills
+git clone https://github.com/bambuser/bambuser-agent-skills
 mkdir -p ~/.claude/skills ~/.agents/skills
 cp -r agent-skills/skills/* ~/.claude/skills/   # Claude Code (reads only .claude/skills)
 cp -r agent-skills/skills/* ~/.agents/skills/   # Cursor / Codex / Gemini / Copilot / Amp
@@ -39,7 +39,7 @@ For a per-project install, copy into `./.claude/skills` and `./.agents/skills` o
 Symlinks the Claude Code dir (so `git pull` refreshes it) and copies the neutral `.agents/skills` dir (Codex doesn't load a symlinked one):
 
 ```bash
-git clone https://github.com/bambuser/agent-skills
+git clone https://github.com/bambuser/bambuser-agent-skills
 agent-skills/install.sh --global                                # all your projects
 cd /path/to/your/project && /path/to/agent-skills/install.sh    # or per-project
 ```

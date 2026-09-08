@@ -12,7 +12,7 @@
 # Default ("auto"): symlink the Claude Code dir (.claude/skills) so `git pull` refreshes it,
 # and COPY the neutral dir (.agents/skills) because some tools (notably Codex) do not load a
 # symlinked .agents/skills. Re-run this script after `git pull` to refresh copied targets.
-# Tip: the cross-agent CLI `npx skills add bambuser/agent-skills` is an alternative to this script.
+# Tip: the cross-agent CLI `npx skills add bambuser/bambuser-agent-skills` is an alternative to this script.
 
 set -euo pipefail
 
